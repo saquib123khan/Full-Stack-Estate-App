@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routers/user.route.js'
 import authRouter from './routers/auth.route.js'
+import { errorMiddleware } from './middlewares/error.middleware.js';
 
 // Load environment variables
 dotenv.config();
@@ -27,6 +28,9 @@ const PORT = process.env.PORT || 3000;
 // api endpoints
 app.use('/api/user', userRouter)
 app.use('/api/auth', authRouter)
+
+// Error handling middleware
+app.use(errorMiddleware)
 
 
 // Start the server

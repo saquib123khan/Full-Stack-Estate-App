@@ -49,13 +49,14 @@ const Signup = () => {
         <input onChange={handleChange} type="text" placeholder="email" id="email" className="border p-3 rounded-lg"/>
         <input onChange={handleChange} type="text" placeholder="password" id="password" className="border p-3 rounded-lg"/>
         <button disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">{loading? 'Loading...' : 'SIGN UP'}</button>
-        <div className='flex gap-2 mt-4'>
+      </form>
+      <div className='flex gap-2 mt-4'>
           <p>Have an account?</p>
           <Link to={'/sign-in'}>
           <span className='text-blue-700'>Sign in</span>
           </Link>
         </div>
-      </form>
+        {error && <p className='text-red-500 mt-5'>{error}</p>}
     </div>
   )
 }

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routers/user.route.js'
 import authRouter from './routers/auth.route.js'
+import listingRouter from './routers/listing.route.js'
 import { errorMiddleware } from './middlewares/error.middleware.js';
 import cookieParser from 'cookie-parser';
 
@@ -30,6 +31,7 @@ const PORT = process.env.PORT || 3000;
 // api endpoints
 app.use('/api/user', userRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/listing', listingRouter)
 
 // Error handling middleware
 app.use(errorMiddleware)

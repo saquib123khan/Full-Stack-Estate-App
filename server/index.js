@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRouter from './routers/user.route.js'
 import authRouter from './routers/auth.route.js'
 import { errorMiddleware } from './middlewares/error.middleware.js';
+import cookieParser from 'cookie-parser';
 
 // Load environment variables
 dotenv.config();
@@ -21,6 +22,7 @@ mongoose
 const app = express();
 
 app.use(express.json())
+app.use(cookieParser())
 
 // Define the PORT
 const PORT = process.env.PORT || 3000;
